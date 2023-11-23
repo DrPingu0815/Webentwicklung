@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2f7c801a-3de0-471f-a66a-c4313d13551e" name="Local Server" url="http://127.0.0.1">
+        <fileTransfer accessType="SFTP" sshConfigId="2d8a9a76-94fb-4aec-b008-e6042896c33e" sshConfig="Local Server">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="a3d5349d-304f-4fab-af9f-c546dedb4bff" name="XAMPP Apache" url="http://127.0.0.1/WebEntwicklung">
+        <fileTransfer mountedRoot="C:\xampp\htdocs\WebEntwicklung" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
