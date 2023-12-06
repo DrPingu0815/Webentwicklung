@@ -1,0 +1,17 @@
+#Active{
+    color: white;
+}
+
+nav img{
+	width: 14rem;
+    height: auto;
+}
+
+nav, footer{
+    background-color: #002060;
+	height: 6rem;
+}
+
+footer{
+	color: white;
+}
