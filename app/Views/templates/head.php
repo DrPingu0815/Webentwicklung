@@ -6,7 +6,7 @@
     <title>Startseite</title>
     <link href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css"
           rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="<?=base_url()?>style.css">
     <script
             src="https://unpkg.com/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
     </script>
