@@ -8,6 +8,9 @@
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$/" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="/Applications/MAMP/htdocs/web-entwicklung/app/Config/Database.php" />
+          </excludedPaths>
         </serverdata>
       </paths>
       <paths name="Webentwicklung">
@@ -15,6 +18,9 @@
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath path="/app/Config/Database.php" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>
