@@ -55,23 +55,21 @@ use App\Controllers\StartseitenController;
                             <td><?= $item['erledigt'] ?></td>
                             <td><?= $item['geloescht'] ?></td>
 
-                            <td class="d-flex justify-content-start" style="height: auto;">
+                            <td>
+                                <div class="d-flex fill-height justify-content-start">
+                                    <form action="<?= base_url('TaskController/TasksBearbeiten/' . $item['id']) ?>" method="post">
+                                        <button type="submit" class="btn btn-link" >
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                    </form>
 
-
-
-                                <form action="<?= base_url('TaskController/TasksBearbeiten/' . $item['id']) ?>" method="get">
-                                    <button type="submit" class="btn btn-link" >
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                </form>
-
-                                <form action="<?= base_url('TaskController/TasksLoeschen/' . $item['id']) ?>" method="get">
-                                    <button type="submit" class="btn btn-link">
-                                        <i class="fa-solid fa-trash-alt ms-2"></i>
-                                    </button>
-                                </form>
+                                    <form action="<?= base_url('TaskController/TasksLoeschen/' . $item['id']) ?>" method="get">
+                                        <button type="submit" class="btn btn-link">
+                                            <i class="fa-solid fa-trash-alt ms-2"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
-
 
 
                         </tr>
