@@ -15,8 +15,6 @@ class TaskModel extends Model
     public function getSpeichern($daten)
     {
 
-
-
         $db = db_connect();
 
         $tasks = $db->table($this->table);
@@ -35,7 +33,6 @@ class TaskModel extends Model
     {
 
         $this->delete($id);
-
 
     }
 

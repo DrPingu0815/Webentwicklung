@@ -14,6 +14,50 @@ use App\Models\TaskModel;
 
 class TaskController extends BaseController
 {
+
+    public function getTaskCRUD($id = 0, $todo = 0){
+        // Todo: 0 = Erstellen, 1 = Bearbeiten, 2 = Löschen
+
+        $data['todo'] = $todo;
+
+        if($todo != 0){
+            $firstmodel = new Startseite();
+            $data['tasks'] = $firstmodel->getTasks($id);
+        }else{
+            $data['tasks'] = null;
+        }
+
+        // Andere notwendige Daten für das Formular
+        $personenmodel = new PersonenModel();
+        $data['personen'] = $personenmodel->getPersonen();
+
+        $spaltenmodel = new SpaltenModel();
+        $data['spalten'] = $spaltenmodel->getSpalten();
+
+        $taskartenmodel = new TaskArtModel();
+        $data['taskarten'] = $taskartenmodel->getTaskarten();
+
+        echo view('templates/head');
+        echo view('taskscedit', $data);
+        echo view('templates/footer');
+    }
+
+    public function postCRUD(){
+        var_dump($_POST);
+        $result = $this->request->getPost('buttonCRUD');
+
+        if($result == "Speichern"){
+            return $this->postSpeichern();
+        }elseif ($result == "Bearbeiten"){
+            return $this->postBearbeiten();
+        }elseif ($result == "Löschen"){
+            return $this->postTasksLoeschen();
+        }
+        echo 'fail';
+        echo $result;
+        //return redirect()->to(base_url('StartseitenController/Startseite'));
+    }
+
     public function getTaskMaske()
     {
         $personenmodel = new PersonenModel();
@@ -55,9 +99,7 @@ class TaskController extends BaseController
     public function getTasksBearbeiten($id)
     {
 
-        $db = db_connect();
-
-
+        //$db = db_connect();
 
         $firstmodel = new Startseite();
         $data['tasks'] = $firstmodel->getTasks($id);
@@ -73,12 +115,8 @@ class TaskController extends BaseController
         $data['taskarten'] = $taskartenmodel->getTaskarten();
 
         echo view('templates/head');
-        echo view('taskBearbeiten', $data);
+        echo view('taskscedit', $data);
         echo view('templates/footer');
-
-
-
-
     }
 
 

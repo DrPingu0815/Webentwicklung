@@ -7,7 +7,8 @@ use App\Controllers\StartseitenController;
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h3 class="card-title">Tasks</h3>
-            <a class="btn btn-primary btn-sm" href="<?= base_url('TaskController/TaskMaske') ?>" role="button">Neu</a>
+           <!-- <a class="btn btn-primary btn-sm" href="<?= base_url('TaskController/TaskMaske') ?>" role="button">Neu</a> -->
+            <a class="btn btn-primary btn-sm" href="<?= base_url('TaskController/TaskCRUD') ?>" role="button">Neu</a>
         </div>
 
 
@@ -57,13 +58,15 @@ use App\Controllers\StartseitenController;
 
                             <td>
                                 <div class="d-flex fill-height justify-content-start">
-                                    <form action="<?= base_url('TaskController/TasksBearbeiten/' . $item['id']) ?>" method="post">
+                                  <!--  <form action="<?= base_url('TaskController/TasksBearbeiten/' . $item['id']) ?>" method="get"> -->
+                                    <form action="<?= base_url('TaskController/TaskCRUD/' . $item['id'].'/'.'1') ?>" method="get">
                                         <button type="submit" class="btn btn-link" >
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </button>
                                     </form>
 
-                                    <form action="<?= base_url('TaskController/TasksLoeschen/' . $item['id']) ?>" method="get">
+                                   <!-- <form action="<?= base_url('TaskController/TasksLoeschen/' . $item['id']) ?>" method="get"> -->
+                                    <form action="<?= base_url('TaskController/TaskCRUD/' . $item['id'] . '/' . 2) ?>" method="get">
                                         <button type="submit" class="btn btn-link">
                                             <i class="fa-solid fa-trash-alt ms-2"></i>
                                         </button>
