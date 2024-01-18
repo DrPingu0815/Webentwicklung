@@ -107,11 +107,11 @@ use App\Models\TaskModel;
                     <input type="hidden" name="id" value="<?= isset($tasks) ? esc($tasks['id']) : '' ?>">
 
                     <? if($todo == 0): ?>
-                        <button type="submit" class="btn btn-success mb-2" role="button" name="buttonCRUD" value="Speichern">Speichern</button>
+                        <button type="submit" class="btn btn-primary mb-2" role="button" name="buttonCRUD" value="Speichern">Speichern</button>
                     <? elseif($todo == 1): ?>
                         <button type="submit" class="btn btn-success mb-2" role="button" name="buttonCRUD" value="Bearbeiten">Bearbeiten</button>
                     <? elseif($todo == 2): ?>
-                        <button type="submit" class="btn btn-success mb-2" role="button" name="buttonCRUD" value="Löschen">Löschen</button>
+                        <button type="submit" class="btn btn-danger mb-2" role="button" name="buttonCRUD" value="Löschen">Löschen</button>
                     <? endif; ?>
                     <a class="btn btn-secondary  mb-2" href="<?= base_url('StartseitenController/Startseite') ?>" role="button">Abbrechen</a>
 
