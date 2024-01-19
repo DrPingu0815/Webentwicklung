@@ -76,16 +76,20 @@ class Tasks extends BaseController
 
 
     public function postCRUD(){
+        //$this->session = \Config\Services::session();
+        //$this->valdiation = \Config\Services::validation();
+        $validation = \Config\Services::validation();
+        //echo $this->valdiation;
 
 
-
-
+        var_dump($_POST);
+        //die();
         $taskmodel = new TaskModel();
         $result = $this->request->getPost('buttonCRUD');
         $id = $this->request->getPost('id');
 
 
-       // if($this->validation->run($_POST, 'taskbearbeiten')) {
+        if($validation->run($_POST, 'taskbearbeiten')) {
 
             if ($result == "Bearbeiten") {
 
@@ -104,17 +108,17 @@ class Tasks extends BaseController
             return redirect()->to(base_url('Tasks/Startseite'));
 
 
-       // } else{
+        } else{
 
-         //   $data['tasks'] = $_POST;
-        //    $data['error'] = $this->validation->getErrors();
+            $data['tasks'] = $_POST;
+            $data['error'] = $validation->getErrors();
 
+            //$data['todo'] = 0;
 
-
-        //    echo view('templates/head');
-        //    echo view('taskedit', $data);
-        //    echo view('templates/footer');
-       // }
+            echo view('templates/head');
+            echo view('taskedit', $data);
+            echo view('templates/footer');
+        }
     }
 
 
