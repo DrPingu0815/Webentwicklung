@@ -38,6 +38,33 @@ class Validation extends BaseConfig
         'single' => 'CodeIgniter\Validation\Views\single',
     ];
 
+
+
+    public $taskbearbeiten =
+        [
+        'taskbezeichnung' => 'required',
+        'taskart' => 'required',
+        'person' => 'required',
+        'erstellungsdatum' => 'required',
+        'erinnerungsdatum' => 'required',
+        'erinnerung' => 'required',
+        'notiz' => 'required',
+        'spalte' => 'required'
+    ];
+
+
+    public $taskbearbeiten_errors =
+        [
+        'taskbezeichnung' => ['required' => 'Bitte tragen Sie eine Taskbezeichnung ein.'],
+        'taskart' => ['required' => 'Bitte tragen Sie eine Taskart ein.'],
+        'person' => ['required' => 'Bitte geben Sie eine Person an.'],
+        'erstellungsdatum' => ['required' => 'Bitte geben Sie ein Erstellungsdatum an.'],
+        'erinnerungsdatum' => ['required' => 'Bitte geben Sie ein Erinnerungsdatum an.'],
+        'erinnerung' => ['required' => 'Bitte geben Sie eine Erinnerung an.'],
+        'notiz' => ['required' => 'Bitte tragen Sie eine Notiz ein.'],
+        'spalte' => ['required' => 'Bitte geben Sie eine Spalte an.']
+        ];
+
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------

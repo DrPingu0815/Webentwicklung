@@ -10,7 +10,6 @@ class TaskArtModel extends Model
 
     public function getTaskarten($id = NULL)
     {
-        //$db = db_connect();
 
         $this->taskarten = $this->db->table('taskarten');
         $this->taskarten->select('*');

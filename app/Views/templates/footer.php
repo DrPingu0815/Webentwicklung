@@ -1,19 +1,21 @@
-<div class="container mt-5">
-    <footer class="footer footer-dark d-flex flex-wrap justify-content-between align-items-center fixed-bottom">
-        <span class="col-6 ps-5"> &copy;Web-Entwicklung 2023</span>
-        <ul class="nav col-md-4 justify-content-end me-5">
-            <li class="nav-item text-white">
-                <a href="" class="nav-link text-white">Impressum</a>
-            </li>
-            <li class="nav-item text-white">
-                <a href="" class="nav-link text-white">Datenschutz</a>
-            </li>
-            <li class="nav-item ">
-                <a href="" class="nav-link text-white">Kontakt</a>
-            </li>
-        </ul>
-    </footer>
-</div>
+<footer class="footer mt-auto py-3 bg-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 text-white text-start">
+                <span class="text-white"> &copy;Web-Entwicklung 2023</span>
+            </div>
+            <div class="col-6 text-white text-end">
+                <a class="text-white" href="">Impressum</a> -
+                <a class="text-white" href="">Datenschutz</a> -
+                <a class="text-white" href="">Kontakt</a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
+
+
+
+

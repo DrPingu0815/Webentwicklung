@@ -3,38 +3,90 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-use App\Controllers\TaskController;
-use App\Controllers\TasksBearbeiten;
+use App\Controllers\Tasks;
+
+
 class TaskModel extends Model
 {
 
-    protected $table = 'tasks';
-    protected $primaryKey = 'id';
-    protected $allowedFields = ['tasks','taskartenid','personenid', 'erstellungsdatum', 'erinnerungsdatum', 'erinnerung', 'notizen', 'spaltenid'];
 
-    public function getSpeichern($daten)
+
+    public function task_speichern()
     {
 
-        $db = db_connect();
+        $this->tasks = $this->db->table('tasks');
 
-        $tasks = $db->table($this->table);
+       $this->tasks->insert(array(  'tasks' => $_POST['taskbezeichnung'],
+                                    'taskartenid' => $_POST['taskart'],
+                                    'personenid'=> $_POST['person'],
+                                    'erstellungsdatum' => $_POST['erstellungsdatum'],
+                                    'erinnerungsdatum' => $_POST['erinnerungsdatum'],
+                                    'erinnerung' => $_POST['erinnerung'],
+                                    'notizen' => $_POST['notiz'],
+                                    'spaltenid' =>$_POST['spalte']));
 
-        $tasks->insert($daten);
 
     }
 
-    public function getBearbeiten($id, $daten)
+
+
+
+
+
+    public function task_bearbeiten()
     {
-        $this->update($id, $daten);
+
+        $this->tasks = $this->db->table('tasks');
+        $this->tasks->where('id', $_POST['id']);
+        $this->tasks->update(array(  'tasks' => $_POST['taskbezeichnung'],
+            'taskartenid' => $_POST['taskart'],
+            'personenid'=> $_POST['person'],
+            'erstellungsdatum' => $_POST['erstellungsdatum'],
+            'erinnerungsdatum' => $_POST['erinnerungsdatum'],
+            'erinnerung' => $_POST['erinnerung'],
+            'notizen' => $_POST['notiz'],
+            'spaltenid' =>$_POST['spalte']));
     }
 
 
-    public function getLoeschen($id)
+    public function task_loeschen()
     {
 
-        $this->delete($id);
+        $this->tasks = $this->db->table('tasks');
+        $this->tasks->where('id', $_POST['id']);
+        $this->tasks->delete();
 
     }
+
+
+
+
+    public function getTasks($id = NULL)
+    {
+        $this->tasks = $this->db->table('tasks t');
+        $this->tasks->select('t.*, p.vorname, p.name, ta.taskart, s.spalte');
+        $this->tasks->join('personen p', 't.personenid = p.id');
+        $this->tasks->join('spalten s', 't.spaltenid = s.id');
+        $this->tasks->join('taskarten ta', 't.taskartenid = ta.id');
+        $this->tasks->orderBy('p.vorname', 'asc');
+
+
+
+        if ($id != NULL) {
+            $this->tasks->where('t.id', $id);
+        }
+
+        $result = $this->tasks->get();
+
+        if ($id != NULL) {
+            return $result->getRowArray();
+        } else {
+            return $result->getResultArray();
+        }
+    }
+
+
+
 
 
 

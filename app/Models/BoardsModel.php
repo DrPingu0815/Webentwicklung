@@ -9,7 +9,6 @@ class BoardsModel extends Model
 {
     public function getBoards($id = NULL)
     {
-        $db = db_connect();
 
         $this->boards = $this->db->table('boards');
         $this->boards->select('*');

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="c2226297-abcf-4b01-bfd4-9f7c6a414f40" name="Webentwicklung" url="team17.wi1cm.uni-trier.de">
+      <webServer id="c2226297-abcf-4b01-bfd4-9f7c6a414f40" name="Webentwicklung" url="team22.wi1cm.uni-trier.de">
         <fileTransfer accessType="FTPS" host="hosting.wi1cm.uni-trier.de" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />

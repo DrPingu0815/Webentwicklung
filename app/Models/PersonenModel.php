@@ -9,7 +9,6 @@ class PersonenModel extends Model
 {
     public function getPersonen($id = NULL)
     {
-        $db = db_connect();
 
         $this->personen = $this->db->table('personen');
         $this->personen->select('*');
