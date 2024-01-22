@@ -62,6 +62,8 @@ class Tasks extends BaseController
          echo view('taskedit', $data);
          echo view('templates/footer');
 
+         $this->session->set('data',$data);
+         var_dump($this->session->get('data'));
     }
 
 
@@ -99,20 +101,28 @@ class Tasks extends BaseController
                }
            }
 
-
+           return redirect()->to(base_url('Tasks/Startseite'));
        }else{
+           // Ruft die Infromation Sitzung wieder auf.
 
-            $data['tasks'] = $_POST;
-            $data['error'] = $this->validation->getErrors();
+           $data = $this->session->get('data');
+           $data['tasks'] = $_POST;
 
 
+           //$data=array_merge($_POST,$data['tasks']);
 
-            echo view('templates/head');
-            echo view('taskedit', $data);
-            echo view('templates/footer');
+           $data['error'] = $this->validation->getErrors();
+
+           //var_dump($data);
+           var_dump($data['error']);
+
+
+           echo view('templates/head');
+           echo view('taskedit', $data);
+           echo view('templates/footer');
        }
 
-        return redirect()->to(base_url('Tasks/Startseite'));
+
 
     }
 
