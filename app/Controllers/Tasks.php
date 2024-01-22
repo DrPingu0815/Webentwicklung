@@ -81,10 +81,13 @@ class Tasks extends BaseController
 
         $taskmodel = new TaskModel();
         $result = $this->request->getPost('buttonCRUD');
-        $id = $this->request->getPost('id');
 
 
-       if($this->validation->run($_POST, "taskbearbeiten")) {
+        if($this->validation->run($_POST, "taskbearbeiten")) {
+
+            $id = $this->request->getPost('id');
+
+
 
            if ($result == "Bearbeiten") {
 
