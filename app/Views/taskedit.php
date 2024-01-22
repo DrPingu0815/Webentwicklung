@@ -30,11 +30,16 @@ use App\Controllers\Tasks;
                     <div class="mb-2 row">
                         <label class="col-sm-2 col-form-label" for="tasks">Taskbezeichnung</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control"
+                            <input type="text" class="form-control <?= isset($error['tasks']) ? 'is-invalid' : '' ?>"
                                    id="tasks" name="tasks" placeholder="Bezeichnung der Aufgabe"
                                    value="<?=(isset($tasks['tasks']) ? $tasks['tasks'] : '')?>">
+                          <!--  <div class="valid-feedback">
+                                Looks good!
+                            </div> -->
+                            <div class="invalid-feedback">
+                                <?= isset($error['tasks']) ? $error['tasks'] : '' ?>
+                            </div>
                         </div>
-
                     </div>
 
 
@@ -42,13 +47,16 @@ use App\Controllers\Tasks;
                     <div class="mb-2 row">
                         <label class="col-sm-2 col-form-label" for="taskart">Taskart</label>
                         <div class="col-sm-10">
-                            <select class="form-select" id="taskart" name="taskart">
+                            <select class="form-select  <?= isset($error['taskart']) ? 'is-invalid' : '' ?>" id="taskart" name="taskart">
                                 <?php foreach ($taskarten as $taskart): ?>
-                                    <option value="<?= $taskart['id'] ?>" <?= isset($tasks) && ($taskart['id'] == $tasks['taskartenid']) ? 'selected' : '' ?>>
+                                    <option value="<?= $taskart['id'] ?>" <?= isset($tasks['taskartenid']) && ($taskart['id'] == $tasks['taskartenid']) ? 'selected' : '' ?>>
                                         <?= $taskart['taskart'] ?>
                                     </option>
                                 <?php endforeach; ?>
                             </select>
+                            <div class="invalid-feedback">
+                                <?= isset($error['tasks']) ?>
+                            </div>
                         </div>
 
                     </div>
@@ -57,9 +65,9 @@ use App\Controllers\Tasks;
                     <div class="mb-2 row">
                         <label class="col-sm-2 col-form-label" for="person">Person</label>
                         <div class="col-sm-10">
-                            <select class="form-select" id="person" name="person">
+                            <select class="form-select <?= isset($error['person']) ? 'is-invalid' : '' ?>" id="person" name="person">
                                 <?php foreach ($personen as $person): ?>
-                                    <option value="<?= $person['id'] ?>" <?= isset($tasks) && ($person['id'] == $tasks['personenid']) ? ' selected' : ''?>>
+                                    <option value="<?= $person['id'] ?>" <?= isset($tasks['personenid']) && ($person['id'] == $tasks['personenid']) ? ' selected' : ''?>>
                                         <?= $person['vorname'] . ' ' . $person['name'] ?>
                                     </option>
                                 <?php endforeach; ?>
@@ -72,7 +80,10 @@ use App\Controllers\Tasks;
                     <div class="mb-2 row">
                         <label class="col-sm-2 col-form-label" for="erstellungsdatum">Erstellungsdatum</label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" id="erstellungsdatum" name="erstellungsdatum" value="<?=(isset($tasks['erstellungsdatum']) ? $tasks['erstellungsdatum'] : '')?>">
+                            <input type="date" class="form-control <?= isset($error['erstellungsdatum']) ? 'is-invalid' : '' ?>" id="erstellungsdatum" name="erstellungsdatum" value="<?=(isset($tasks['erstellungsdatum']) ? $tasks['erstellungsdatum'] : '')?>">
+                            <div class="invalid-feedback">
+                                <?= isset($error['erstellungsdatum']) ? $error['erstellungsdatum'] : '' ?>
+                            </div>
                         </div>
 
                     </div>
@@ -81,7 +92,10 @@ use App\Controllers\Tasks;
                     <div class="mb-2 row">
                         <label class="col-sm-2 col-form-label" for="erinnerungsdatum">Erinnerungsdatum</label>
                         <div class="col-sm-10">
-                            <input type="datetime-local" class="form-control" id="erinnerungsdatum" name="erinnerungsdatum" value="<?=(isset($tasks['erinnerungsdatum']) ? $tasks['erinnerungsdatum'] : '')?>">
+                            <input type="datetime-local" class="form-control <?= isset($error['erinnerungsdatum']) ? 'is-invalid' : '' ?>" id="erinnerungsdatum" name="erinnerungsdatum" value="<?=(isset($tasks['erinnerungsdatum']) ? $tasks['erinnerungsdatum'] : '')?>">
+                            <div class="invalid-feedback">
+                                <?= isset($error['erinnerungsdatum']) ? $error['erinnerungsdatum'] : '' ?>
+                            </div>
                         </div>
 
                     </div>
@@ -102,7 +116,10 @@ use App\Controllers\Tasks;
                     <div class="mb-2 row">
                         <label class="col-sm-2 col-form-label" for="notiz">Notiz</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="notiz" name="notiz" rows="4"><?=(isset($tasks['notizen']) ? $tasks['notizen'] : '')?></textarea>
+                            <textarea class="form-control <?= isset($error['notiz']) ? 'is-invalid' : '' ?>" id="notiz" name="notiz" rows="4"><?=(isset($tasks['notizen']) ? $tasks['notizen'] : '')?></textarea>
+                            <div class="invalid-feedback">
+                                <?= isset($error['notiz']) ? $error['notiz'] : '' ?>
+                            </div>
                         </div>
 
                     </div>
@@ -113,7 +130,7 @@ use App\Controllers\Tasks;
                         <div class="col-sm-10">
                             <select class="form-select" id="spalte" name="spalte">
                                 <?php foreach ($spalten as $spalte): ?>
-                                    <option value="<?= $spalte['id'] ?>" <?= isset($tasks) && ($spalte['id'] == $tasks['spaltenid']) ? 'selected' : '' ?>  >
+                                    <option value="<?= $spalte['id'] ?>" <?= isset($tasks['spaltenid']) && ($spalte['id'] == $tasks['spaltenid']) ? 'selected' : '' ?>  >
                                         <?= $spalte['spalte'] ?>
                                     </option>
                                 <?php endforeach; ?>

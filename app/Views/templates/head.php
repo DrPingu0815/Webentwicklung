@@ -40,7 +40,7 @@
     <div class="container-fluid">
 
         <a class="navbar-brand m-2" href="<?= base_url('Tasks/Startseite') ?>">
-            <img src="../06_-_WE_Logo.svg" alt="" height="auto" width="20vw">
+            <img src="<?= base_url('') ?>/06_-_WE_Logo.svg"" alt="" height="auto" width="20vw">
         </a>
 
         <div class="collapse navbar-collapse">
