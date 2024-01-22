@@ -23,17 +23,20 @@ use App\Controllers\Tasks;
             <form action="<?= base_url('Tasks/CRUD') ?>" method="post">
                 <fieldset>
 
+
+                    <input type="hidden" name="id" value="<?= isset($tasks) ? esc($tasks['id']) : '' ?>">
+
+
                     <div class="mb-2 row">
-                        <label class="col-sm-2 col-form-label" for="taskbezeichnung">Taskbezeichnung</label>
+                        <label class="col-sm-2 col-form-label" for="tasks">Taskbezeichnung</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control <?=(isset($error['taskbezeichnung']))?'is-invalid':''?>"
-                                   id="taskbezeichnung" name="taskbezeichnung" placeholder="Bezeichnung der Aufgabe"
-                                   value="<?= ($todo != 0) ? esc($tasks['tasks']) : '' ?>">
+                            <input type="text" class="form-control"
+                                   id="tasks" name="tasks" placeholder="Bezeichnung der Aufgabe"
+                                   value="<?=(isset($tasks['tasks']) ? $tasks['tasks'] : '')?>">
                         </div>
-                        <div class="invalid-feedback">
-                            <?=(isset($error['taskbezeichnung']))?$error['taskbezeichnung']:''?>
-                        </div>
+
                     </div>
+
 
 
                     <div class="mb-2 row">
@@ -69,22 +72,18 @@ use App\Controllers\Tasks;
                     <div class="mb-2 row">
                         <label class="col-sm-2 col-form-label" for="erstellungsdatum">Erstellungsdatum</label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control <?=(isset($error['erstellungsdatum']))?'is-invalid':''?>" id="erstellungsdatum" name="erstellungsdatum" value="<?=  isset($tasks) ? esc($tasks['erstellungsdatum']) : '' ?>">
+                            <input type="date" class="form-control" id="erstellungsdatum" name="erstellungsdatum" value="<?=(isset($tasks['erstellungsdatum']) ? $tasks['erstellungsdatum'] : '')?>">
                         </div>
-                        <div class="invalid-feedback">
-                            <?=(isset($error['erstellungsdatum']))?$error['erstellungsdatum']:''?>
-                        </div>
+
                     </div>
 
 
                     <div class="mb-2 row">
                         <label class="col-sm-2 col-form-label" for="erinnerungsdatum">Erinnerungsdatum</label>
                         <div class="col-sm-10">
-                            <input type="datetime-local" class="form-control <?=(isset($error['erinnerungsdatum']))?'is-invalid':''?>" id="erinnerungsdatum" name="erinnerungsdatum" value="<?=  isset($tasks) ? esc($tasks['erinnerungsdatum']) : '' ?>">
+                            <input type="datetime-local" class="form-control" id="erinnerungsdatum" name="erinnerungsdatum" value="<?=(isset($tasks['erinnerungsdatum']) ? $tasks['erinnerungsdatum'] : '')?>">
                         </div>
-                        <div class="invalid-feedback">
-                            <?=(isset($error['erinnerungsdatum']))?$error['erinnerungsdatum']:''?>
-                        </div>
+
                     </div>
 
 
@@ -103,11 +102,9 @@ use App\Controllers\Tasks;
                     <div class="mb-2 row">
                         <label class="col-sm-2 col-form-label" for="notiz">Notiz</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control <?=(isset($error['notiz']))?'is-invalid':''?>"" id="notiz" name="notiz" rows="4"><?= isset($tasks) ? esc($tasks['notizen']) : '' ?></textarea>
+                            <textarea class="form-control" id="notiz" name="notiz" rows="4"><?=(isset($tasks['notizen']) ? $tasks['notizen'] : '')?></textarea>
                         </div>
-                        <div class="invalid-feedback">
-                            <?=(isset($error['notiz']))?$error['notiz']:''?>
-                        </div>
+
                     </div>
 
 
@@ -125,7 +122,7 @@ use App\Controllers\Tasks;
 
                     </div>
 
-                    <input type="hidden" name="id" value="<?= isset($tasks) ? esc($tasks['id']) : '' ?>">
+
 
                     <? if($todo == 0): ?>
                         <button type="submit" class="btn btn-primary mb-2" role="button" name="buttonCRUD" value="Speichern">Speichern</button>

@@ -16,7 +16,6 @@ class Tasks extends BaseController
 
 
 
-
     public function getStartseite()
     {
 
@@ -76,49 +75,45 @@ class Tasks extends BaseController
 
 
     public function postCRUD(){
-        //$this->session = \Config\Services::session();
-        //$this->valdiation = \Config\Services::validation();
-        $validation = \Config\Services::validation();
-        //echo $this->valdiation;
 
 
-        var_dump($_POST);
-        //die();
+
+
         $taskmodel = new TaskModel();
         $result = $this->request->getPost('buttonCRUD');
         $id = $this->request->getPost('id');
 
 
-        if($validation->run($_POST, 'taskbearbeiten')) {
+       if($this->validation->run($_POST, "taskbearbeiten")) {
 
-            if ($result == "Bearbeiten") {
+           if ($result == "Bearbeiten") {
 
-                if (isset($_POST['id']) && $_POST['id'] != '') {
-                    $taskmodel->task_bearbeiten();
-                }
-            } elseif ($result == "Speichern") {
-                $taskmodel->task_speichern();
-            } elseif ($result == "Löschen") {
-                if (isset($_POST['id']) && $_POST['id'] != '') {
-                    $taskmodel->task_loeschen($id);
-                }
-            }
-
-
-            return redirect()->to(base_url('Tasks/Startseite'));
+               if (isset($_POST['id']) && $_POST['id'] != '') {
+                   $taskmodel->task_bearbeiten();
+               }
+           } elseif ($result == "Speichern") {
+               $taskmodel->task_speichern();
+           } elseif ($result == "Löschen") {
+               if (isset($_POST['id']) && $_POST['id'] != '') {
+                   $taskmodel->task_loeschen($id);
+               }
+           }
 
 
-        } else{
+       }else{
 
             $data['tasks'] = $_POST;
-            $data['error'] = $validation->getErrors();
+            $data['error'] = $this->validation->getErrors();
 
-            //$data['todo'] = 0;
+
 
             echo view('templates/head');
             echo view('taskedit', $data);
             echo view('templates/footer');
-        }
+       }
+
+        return redirect()->to(base_url('Tasks/Startseite'));
+
     }
 
 

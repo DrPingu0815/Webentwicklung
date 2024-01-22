@@ -40,22 +40,21 @@ class Validation extends BaseConfig
 
 
 
-    public $taskbearbeiten =
-        [
-        'taskbezeichnung' => 'required',
-        'taskart' => 'required',
-        'person' => 'required',
-        'erstellungsdatum' => 'required',
-        'erinnerungsdatum' => 'required',
-        'erinnerung' => 'required',
-        'notiz' => 'required',
-        'spalte' => 'required'
+    public array $taskbearbeiten = [
+        "tasks" => 'required',
+        "taskart" => 'required',
+        "person" => 'required',
+        "erstellungsdatum" => 'required',
+        "erinnerungsdatum" => 'required',
+        "erinnerung" => 'required',
+        "notiz" => 'required',
+        "spalte" => 'required',
     ];
 
 
-    public $taskbearbeiten_errors =
+    public array $taskbearbeiten_errors =
         [
-        'taskbezeichnung' => ['required' => 'Bitte tragen Sie eine Taskbezeichnung ein.'],
+        'tasks' => ['required' => 'Bitte tragen Sie eine Taskbezeichnung ein.'],
         'taskart' => ['required' => 'Bitte tragen Sie eine Taskart ein.'],
         'person' => ['required' => 'Bitte geben Sie eine Person an.'],
         'erstellungsdatum' => ['required' => 'Bitte geben Sie ein Erstellungsdatum an.'],

@@ -26,7 +26,7 @@ use App\Controllers\Tasks;
                    data-toolbar="#toolbar"
             >
 
-            <thead>
+                <thead>
                 <tr>
                     <th data-sortable="true">TaskID</th>
                     <th data-sortable="true">Vorname</th>
@@ -44,46 +44,48 @@ use App\Controllers\Tasks;
                     <th data-sortable="true">Bearbeiten</th>
                 </tr>
                 </thead>
-                    <tbody>
-                    <?php foreach ($tasks as $item): ?>
-                        <tr>
-                            <td><?= $item['id'] ?></td>
-                            <td><?= $item['vorname'] ?></td>
-                            <td><?= $item['name'] ?></td>
-                            <td><?= $item['taskart'] ?></td>
-                            <td><?= $item['spalte'] ?></td>
-                            <td><?= $item['sortid'] ?></td>
-                            <td><?= $item['tasks'] ?></td>
-                            <td><?= $item['erstellungsdatum'] ?></td>
-                            <td><?= $item['erinnerungsdatum'] ?></td>
-                            <td><?= $item['erinnerung'] ?></td>
-                            <td><?= $item['notizen'] ?></td>
-                            <td><?= $item['erledigt'] ?></td>
-                            <td><?= $item['geloescht'] ?></td>
+                <tbody>
+                <?php foreach ($tasks as $item): ?>
+                    <tr>
+                        <td><?= $item['id'] ?></td>
+                        <td><?= $item['vorname'] ?></td>
+                        <td><?= $item['name'] ?></td>
+                        <td><?= $item['taskart'] ?></td>
+                        <td><?= $item['spalte'] ?></td>
+                        <td><?= $item['sortid'] ?></td>
+                        <td><?= $item['tasks'] ?></td>
+                        <td><?= $item['erstellungsdatum'] ?></td>
+                        <td><?= $item['erinnerungsdatum'] ?></td>
+                        <td><?= $item['erinnerung'] ?></td>
+                        <td><?= $item['notizen'] ?></td>
+                        <td><?= $item['erledigt'] ?></td>
+                        <td><?= $item['geloescht'] ?></td>
 
-                            <td>
-                                <div class="d-flex fill-height justify-content-start">
-                                    <form action="<?= base_url('Tasks/TaskCRUD/' . $item['id'].'/'.'1') ?>" method="get">
-                                        <button type="submit" class="btn btn-link" >
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </button>
-                                    </form>
+                        <td>
+                            <div class="d-flex fill-height justify-content-start">
+                                <form action="<?= base_url('Tasks/TaskCRUD/' . $item['id'].'/'.'1') ?>" method="get">
+                                    <button type="submit" class="btn btn-link" >
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </button>
+                                </form>
 
-                                    <form action="<?= base_url('Tasks/TaskCRUD/' . $item['id'] . '/' . 2) ?>" method="get">
-                                        <button type="submit" class="btn btn-link">
-                                            <i class="fa-solid fa-trash-alt ms-2"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
+                                <form action="<?= base_url('Tasks/TaskCRUD/' . $item['id'] . '/' . 2) ?>" method="get">
+                                    <button type="submit" class="btn btn-link">
+                                        <i class="fa-solid fa-trash-alt ms-2"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
 
 
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+
+
 
 
