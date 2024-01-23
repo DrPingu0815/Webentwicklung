@@ -20,7 +20,7 @@
 
 
 
-   <!-- Bootstrap Table -->
+    <!-- Bootstrap Table -->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.2/dist/bootstrap-table.min.css">
     <script src="https://unpkg.com/bootstrap-table@1.22.2/dist/bootstrap-table.min.js"></script>
 

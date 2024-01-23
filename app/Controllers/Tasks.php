@@ -38,32 +38,32 @@ class Tasks extends BaseController
 
 
 
-         $data['todo'] = $todo;
-         $taskModel = new TaskModel();
+        $data['todo'] = $todo;
+        $taskModel = new TaskModel();
 
-         if ($id > 0 && ($todo == 1 || $todo == 2)) {
+        if ($id > 0 && ($todo == 1 || $todo == 2)) {
 
-             $data['tasks'] = $taskModel->getTasks($id);
+            $data['tasks'] = $taskModel->getTasks($id);
 
-         }
+        }
 
 
-         // Andere notwendige Daten für das Formular
-         $personenmodel = new PersonenModel();
-         $data['personen'] = $personenmodel->getPersonen();
+        // Andere notwendige Daten für das Formular
+        $personenmodel = new PersonenModel();
+        $data['personen'] = $personenmodel->getPersonen();
 
-         $spaltenmodel = new SpaltenModel();
-         $data['spalten'] = $spaltenmodel->getSpalten();
+        $spaltenmodel = new SpaltenModel();
+        $data['spalten'] = $spaltenmodel->getSpalten();
 
-         $taskartenmodel = new TaskArtModel();
-         $data['taskarten'] = $taskartenmodel->getTaskarten();
+        $taskartenmodel = new TaskArtModel();
+        $data['taskarten'] = $taskartenmodel->getTaskarten();
 
-         echo view('templates/head');
-         echo view('taskedit', $data);
-         echo view('templates/footer');
+        echo view('templates/head');
+        echo view('taskedit', $data);
+        echo view('templates/footer');
 
-         $this->session->set('data',$data);
-         var_dump($this->session->get('data'));
+        $this->session->set('data',$data);
+       // var_dump($this->session->get('data'));
     }
 
 
@@ -83,47 +83,44 @@ class Tasks extends BaseController
 
         $taskmodel = new TaskModel();
         $result = $this->request->getPost('buttonCRUD');
+        $id = $this->request->getPost('id');
 
 
         if($this->validation->run($_POST, "taskbearbeiten")) {
 
-            $id = $this->request->getPost('id');
+            if ($result == "Bearbeiten") {
+
+                if (isset($_POST['id']) && $_POST['id'] != '') {
+                    $taskmodel->task_bearbeiten();
+                }
+            } elseif ($result == "Speichern") {
+                $taskmodel->task_speichern();
+            } elseif ($result == "Löschen") {
+                if (isset($_POST['id']) && $_POST['id'] != '') {
+                    $taskmodel->task_loeschen($id);
+                }
+            }
+
+            return redirect()->to(base_url('Tasks/Startseite'));
+        }else{
+            // Ruft die Infromation Sitzung wieder auf.
+
+            $data = $this->session->get('data');
+            $data['tasks'] = $_POST;
 
 
+            //$data=array_merge($_POST,$data['tasks']);
 
-           if ($result == "Bearbeiten") {
+            $data['error'] = $this->validation->getErrors();
 
-               if (isset($_POST['id']) && $_POST['id'] != '') {
-                   $taskmodel->task_bearbeiten();
-               }
-           } elseif ($result == "Speichern") {
-               $taskmodel->task_speichern();
-           } elseif ($result == "Löschen") {
-               if (isset($_POST['id']) && $_POST['id'] != '') {
-                   $taskmodel->task_loeschen($id);
-               }
-           }
-
-           return redirect()->to(base_url('Tasks/Startseite'));
-       }else{
-           // Ruft die Infromation Sitzung wieder auf.
-
-           $data = $this->session->get('data');
-           $data['tasks'] = $_POST;
+            //var_dump($data);
+           // var_dump($data['error']);
 
 
-           //$data=array_merge($_POST,$data['tasks']);
-
-           $data['error'] = $this->validation->getErrors();
-
-           //var_dump($data);
-           var_dump($data['error']);
-
-
-           echo view('templates/head');
-           echo view('taskedit', $data);
-           echo view('templates/footer');
-       }
+            echo view('templates/head');
+            echo view('taskedit', $data);
+            echo view('templates/footer');
+        }
 
 
 
@@ -132,4 +129,4 @@ class Tasks extends BaseController
 
 
 
-    }
+}

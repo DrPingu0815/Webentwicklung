@@ -33,9 +33,9 @@ use App\Controllers\Tasks;
                             <input type="text" class="form-control <?= isset($error['tasks']) ? 'is-invalid' : '' ?>"
                                    id="tasks" name="tasks" placeholder="Bezeichnung der Aufgabe"
                                    value="<?=(isset($tasks['tasks']) ? $tasks['tasks'] : '')?>">
-                          <!--  <div class="valid-feedback">
-                                Looks good!
-                            </div> -->
+                            <!--  <div class="valid-feedback">
+                                  Looks good!
+                              </div> -->
                             <div class="invalid-feedback">
                                 <?= isset($error['tasks']) ? $error['tasks'] : '' ?>
                             </div>
@@ -155,5 +155,4 @@ use App\Controllers\Tasks;
         </div>
     </div>
 </div>
-
 

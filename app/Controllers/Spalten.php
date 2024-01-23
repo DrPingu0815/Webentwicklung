@@ -53,7 +53,8 @@ class Spalten extends BaseController
         echo view('templates/footer');
 
 
-
+        $this->session->set('data',$data);
+       // var_dump($this->session->get('data'));
     }
     public function postCRUD(){
 
@@ -61,32 +62,49 @@ class Spalten extends BaseController
         $result = $this->request->getPost('buttonCRUD');
         $id = $this->request->getPost('id');
 
+        if($this->validation->run($_POST, "spaltenbearbeiten")) {
 
 
+            if ($result == "Bearbeiten") {
 
-
-        if($result == "Bearbeiten")
-        {
-
-            if(isset($_POST['id']) && $_POST['id'] != ''){
-                $spaltenmodel->spalten_bearbeiten();
+                if (isset($_POST['id']) && $_POST['id'] != '') {
+                    $spaltenmodel->spalten_bearbeiten();
+                }
+            } elseif ($result == "Speichern") {
+                $spaltenmodel->spalten_speichern();
+            } elseif ($result == "Löschen") {
+                if (isset($_POST['id']) && $_POST['id'] != '') {
+                    $spaltenmodel->spalten_loeschen();
+                }
             }
-        }elseif ($result == "Speichern") {
-            $spaltenmodel->spalten_speichern();
+
+
+            return redirect()->to(base_url('Spalten/Spaltenseite'));
+        }else{
+
+            // Ruft die Infromation Sitzung wieder auf.
+
+            $data = $this->session->get('data');
+            $data['spalten'] = $_POST;
+
+
+            //$data=array_merge($_POST,$data['tasks']);
+
+            $data['error'] = $this->validation->getErrors();
+
+            //var_dump($data);
+            // var_dump($data['error']);
+
+
+            echo view('templates/head');
+            echo view('spaltenedit', $data);
+            echo view('templates/footer');
+
+
         }
-        elseif ($result == "Löschen") {
-            if (isset($_POST['id']) && $_POST['id'] != '') {
-                $spaltenmodel->spalten_loeschen();
-            }
-        }
 
 
 
-
-
-
-
-        return redirect()->to(base_url('Spalten/Spaltenseite'));
     }
 
 

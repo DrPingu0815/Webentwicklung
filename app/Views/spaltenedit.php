@@ -23,34 +23,58 @@ use App\Controllers\Tasks;
             <form action="<?= base_url('Spalten/CRUD') ?>" method="post">
                 <fieldset>
 
+
+                    <input type="hidden" name="id" value="<?= isset($spalten) ? esc($spalten['id']) : '' ?>">
+
+
                     <div class="mb-2 row">
-                        <label class="col-sm-2 col-form-label" for="spaltenbezeichnung">Spaltenbezeichnung</label>
+                        <label class="col-sm-2 col-form-label" for="spalte">Spaltenbezeichnung</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="spaltenbezeichnung" name="spaltenbezeichnung" placeholder="Bezeichnung der Spalte" value="<?= ($todo != 0) ? esc($spalten['spalte']) : '' ?>">
+                            <input type="text" class="form-control <?=isset($error['spalte'])? 'is-invalid' : '' ?>"
+                            id="spalte" name="spalte" placeholder="Bezeichnung der Spalte"
+                            value="<?= isset($spalten['spalte']) ? $spalten['spalte'] : '' ?>">
+                            <div class="invalid-feedback">
+                                <?= isset($error['spalte']) ? $error['spalte'] : '' ?>
+                            </div>
                         </div>
                     </div>
 
 
 
                     <div class="mb-2 row">
-                        <label class="col-sm-2 col-form-label" for="sapltenbeschreibung">Spaltenbeschreibung</label>
+                        <label class="col-sm-2 col-form-label" for="spaltenbeschreibung">Spaltenbeschreibung</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="spaltenbeschreibung" name="spaltenbeschreibung" rows="4"><?= isset($spalten) ? esc($spalten['spaltenbeschreibung']) : '' ?></textarea>
+                            <textarea class="form-control <?= isset($error['spaltenbeschreibung']) ? 'is-invalid' : '' ?>" id="spaltenbeschreibung" name="spaltenbeschreibung" rows="4"><?=(isset($spalten['spaltenbeschreibung']) ? $spalten['spaltenbeschreibung'] : '')?></textarea>
+                            <div class="invalid-feedback">
+                                <?= isset($error['spaltenbeschreibung']) ? $error['spaltenbeschreibung'] : '' ?>
+                            </div>
                         </div>
+
                     </div>
+
+
+
+
+
+
 
 
 
                     <div class="mb-2 row">
                         <label class="col-sm-2 col-form-label" for="sortid">SortID</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="sortid" name="sortid" value="<?=  isset($tasks) ? esc($tasks['erinnerungsdatum']) : '' ?>">
+                            <input type="number" class="form-control <?= isset($error['sortid']) ? 'is-invalid' : '' ?>"
+                                   id="sortid" name="sortid" placeholder="SortID der Spalte"
+                                   value="<?= isset($spalten['sortid']) ? $spalten['sortid'] : '' ?>">
+
+                            <div class="invalid-feedback">
+                            <?= isset($error['sortid']) ? $error['sortid'] : '' ?>
+                            </div>
                         </div>
                     </div>
 
 
 
-                    <input type="hidden" name="id" value="<?= isset($spalten) ? esc($spalten['id']) : '' ?>">
 
                     <? if($todo == 0): ?>
                         <button type="submit" class="btn btn-primary mb-2" role="button" name="buttonCRUD" value="Speichern">Speichern</button>
