@@ -20,7 +20,7 @@ use App\Controllers\Tasks;
                             <div class="col-md-4 mb-3">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title"><?= $item['spalte'] ?></h4>
+                                        <h5 class="card-title"><?= $item['spalte'] ?></h5>
 
                                         <a><?= $item['spaltenbeschreibung'] ?></a>
 
