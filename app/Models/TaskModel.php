@@ -10,27 +10,22 @@ class TaskModel extends Model
 {
 
 
-
     public function task_speichern()
     {
 
         $this->tasks = $this->db->table('tasks');
 
-       $this->tasks->insert(array(  'tasks' => $_POST['tasks'],
-                                    'taskartenid' => $_POST['taskart'],
-                                    'personenid'=> $_POST['person'],
-                                    'erstellungsdatum' => $_POST['erstellungsdatum'],
-                                    'erinnerungsdatum' => $_POST['erinnerungsdatum'],
-                                    'erinnerung' => $_POST['erinnerung'],
-                                    'notizen' => $_POST['notiz'],
-                                    'spaltenid' =>$_POST['spalte']));
+        $this->tasks->insert(array('tasks' => $_POST['tasks'],
+            'taskartenid' => $_POST['taskart'],
+            'personenid' => $_POST['person'],
+            'erstellungsdatum' => $_POST['erstellungsdatum'],
+            'erinnerungsdatum' => $_POST['erinnerungsdatum'],
+            'erinnerung' => $_POST['erinnerung'],
+            'notizen' => $_POST['notiz'],
+            'spaltenid' => $_POST['spalte']));
 
 
     }
-
-
-
-
 
 
     public function task_bearbeiten()
@@ -41,12 +36,12 @@ class TaskModel extends Model
         $this->tasks->update(array(
             'tasks' => $_POST['tasks'],
             'taskartenid' => $_POST['taskart'],
-            'personenid'=> $_POST['person'],
+            'personenid' => $_POST['person'],
             'erstellungsdatum' => $_POST['erstellungsdatum'],
             'erinnerungsdatum' => $_POST['erinnerungsdatum'],
             'erinnerung' => $_POST['erinnerung'],
             'notizen' => $_POST['notiz'],
-            'spaltenid' =>$_POST['spalte']));
+            'spaltenid' => $_POST['spalte']));
     }
 
 
@@ -61,11 +56,10 @@ class TaskModel extends Model
 
 
 
-
-    public function getTasks($id = NULL)
+    public function getTasks($taskid = NULL, $spaltenid = NULL)
     {
         $this->tasks = $this->db->table('tasks t');
-        $this->tasks->select('t.*, p.vorname, p.name, ta.taskart, s.spalte');
+        $this->tasks->select('t.*, p.vorname, p.name, ta.taskart, ta.taskartenicon, s.spalte');
         $this->tasks->join('personen p', 't.personenid = p.id');
         $this->tasks->join('spalten s', 't.spaltenid = s.id');
         $this->tasks->join('taskarten ta', 't.taskartenid = ta.id');
@@ -73,18 +67,19 @@ class TaskModel extends Model
 
 
 
-        if ($id != NULL) {
-            $this->tasks->where('t.id', $id);
+        if ($taskid != NULL) {
+            $this->tasks->where('t.id', $taskid);
         }
 
         $result = $this->tasks->get();
 
-        if ($id != NULL) {
+        if ($taskid != NULL) {
             return $result->getRowArray();
         } else {
             return $result->getResultArray();
         }
     }
+
 
 
 

@@ -23,6 +23,17 @@ class Tasks extends BaseController
         $tasks = new TaskModel();
         $data['tasks'] = $tasks->getTasks();
 
+        $spalte = new SpaltenModel();
+        $data['spalte'] = $spalte->getSpalten();
+
+
+
+        //echo '<pre>';
+        //var_dump($data);
+        //echo '</pre>';
+        //die();
+
+
         echo view('templates/head');
         echo view('startseite', $data);
         echo view('templates/footer');

@@ -7,84 +7,49 @@ use App\Controllers\Tasks;
 
 ?>
 
-
-
 <div class="container-fluid">
-    <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h3 class="card-title">Tasks</h3>
-            <a class="btn btn-primary btn-sm" href="<?= base_url('Tasks/TaskCRUD') ?>" role="button">Neu</a>
-        </div>
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3 class="card-title">Tasks</h3>
+                    <a class="btn btn-primary btn-sm" href="<?= base_url('Tasks/TaskCRUD') ?>" role="button">Neu</a>
+                </div>
 
+                <div class="card-body">
+                    <div class="row flex-nowrap overflow-x-auto">
+                        <?php foreach ($spalte as $item): ?>
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title"><?= $item['spalte'] ?></h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <?php foreach ($tasks as $task): ?>
+                                            <?php if ($task['spalte'] == $item['spalte']): ?>
+                                        <div class="card mb-2">
 
-        <div class="card-body">
-            <table class="table table-striped table-bordered table-responsive d-table table-hover ms-2 me-2"
-                   data-show-columns="true"
-                   data-show-toggle="true"
-                   data-toggle="table"
-                   data-search="true"
-                   data-toolbar="#toolbar"
-            >
+                                                <p><strong>TaskID:</strong> <?= $task['id'] ?></p>
+                                                <p><strong>Vorname:</strong> <?= $task['vorname'] ?></p>
+                                                <p><strong>Nachname:</strong> <?= $task['name'] ?></p>
+                                                <p><strong>Taskart:</strong> <?= $task['taskart'] ?></p>
+                                                <p><strong>SortID:</strong> <?= $task['sortid'] ?></p>
+                                                <p><strong>Task:</strong> <?= $task['tasks'] ?></p>
+                                                <p><strong>Erstellungsdatum:</strong> <?= $task['erstellungsdatum'] ?></p>
+                                                <p><strong>Erinnerungsdatum:</strong> <?= $task['erinnerungsdatum'] ?></p>
 
-                <thead>
-                <tr>
-                    <th data-sortable="true">TaskID</th>
-                    <th data-sortable="true">Vorname</th>
-                    <th data-sortable="true">Nachname</th>
-                    <th data-sortable="true">Taskart</th>
-                    <th data-sortable="true">Spalte</th>
-                    <th data-sortable="true">SortID</th>
-                    <th data-sortable="true">Task</th>
-                    <th data-sortable="true">Erstellungsdatum</th>
-                    <th data-sortable="true">Erinnerungsdatum</th>
-                    <th data-sortable="true">Erinnerung</th>
-                    <th data-sortable="true">Notizen</th>
-                    <th data-sortable="true">Erledigt</th>
-                    <th data-sortable="true">Gelöscht</th>
-                    <th data-sortable="true">Bearbeiten</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($tasks as $item): ?>
-                    <tr>
-                        <td><?= $item['id'] ?></td>
-                        <td><?= $item['vorname'] ?></td>
-                        <td><?= $item['name'] ?></td>
-                        <td><?= $item['taskart'] ?></td>
-                        <td><?= $item['spalte'] ?></td>
-                        <td><?= $item['sortid'] ?></td>
-                        <td><?= $item['tasks'] ?></td>
-                        <td><?= $item['erstellungsdatum'] ?></td>
-                        <td><?= $item['erinnerungsdatum'] ?></td>
-                        <td><?= $item['erinnerung'] ?></td>
-                        <td><?= $item['notizen'] ?></td>
-                        <td><?= $item['erledigt'] ?></td>
-                        <td><?= $item['geloescht'] ?></td>
+                                        </div>
 
-                        <td>
-                            <div class="d-flex fill-height justify-content-start">
-                                <form action="<?= base_url('Tasks/TaskCRUD/' . $item['id'].'/'.'1') ?>" method="get">
-                                    <button type="submit" class="btn btn-link" >
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                </form>
-
-                                <form action="<?= base_url('Tasks/TaskCRUD/' . $item['id'] . '/' . 2) ?>" method="get">
-                                    <button type="submit" class="btn btn-link">
-                                        <i class="fa-solid fa-trash-alt ms-2"></i>
-                                    </button>
-                                </form>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
                             </div>
-                        </td>
-
-
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+
+
 
 
 
