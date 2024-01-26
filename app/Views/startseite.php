@@ -21,6 +21,9 @@ use App\Controllers\Tasks;
                                 <div class="card">
                                     <div class="card-header">
                                         <h5 class="card-title"><?= $item['spalte'] ?></h5>
+
+                                        <a><?= $item['spaltenbeschreibung'] ?></a>
+
                                     </div>
                                     <div class="card-body">
                                         <?php foreach ($tasks as $task): ?>
