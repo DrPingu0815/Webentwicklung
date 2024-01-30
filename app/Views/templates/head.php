@@ -50,7 +50,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="" class="nav-link">Boards</a>
+                    <a href="<?= base_url('Boards/Boardsseite') ?>" class="nav-link">Boards</a>
                 </li>
 
                 <li class="nav-item">

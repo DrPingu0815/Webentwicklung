@@ -82,7 +82,13 @@ class Validation extends BaseConfig
 
         ];
 
+    public array $boardsbearbeiten = [
+        'board' => 'required'
+    ];
 
+    public array $boardsbearbeiten_errors = [
+        'board' => ['required' => 'Bitte tragen Sie eine Boardbezeichnung ein.']
+    ];
 
     // --------------------------------------------------------------------
     // Rules
