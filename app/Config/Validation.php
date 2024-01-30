@@ -35,7 +35,7 @@ class Validation extends BaseConfig
      */
     public array $templates = [
         'list'   => 'CodeIgniter\Validation\Views\list',
-        'single' => 'CodeIgniter\Validation\Views\single',
+        'single' => 'CodeIgniter\Validation\Views\single'
     ];
 
 
@@ -48,7 +48,7 @@ class Validation extends BaseConfig
         "erinnerungsdatum" => 'required',
         "erinnerung" => 'required',
         "notiz" => 'required',
-        "spalte" => 'required',
+        "spalte" => 'required'
     ];
 
 
@@ -70,7 +70,7 @@ class Validation extends BaseConfig
         "spaltenbeschreibung" => 'required',
         "spalte" => 'required',
         "sortid" => 'required',
-
+        "boardsid" => 'required'
     ];
 
 
@@ -79,7 +79,7 @@ class Validation extends BaseConfig
             'spaltenbeschreibung' => ['required' => 'Bitte tragen Sie eine Spaltenbeschreibung ein.'],
             'spalte' => ['required' => 'Bitte tragen Sie eine Spaltenbezeichnung ein.'],
             'sortid' => ['required' => 'Bitte tragen Sie eine SortID ein.'],
-
+            'boardsid' => ['required' => 'Bitte tragen Sie eine Taskboard ein.']
         ];
 
     public array $boardsbearbeiten = [

@@ -26,6 +26,21 @@ use App\Controllers\Tasks;
 
                     <input type="hidden" name="id" value="<?= isset($spalten) ? esc($spalten['id']) : '' ?>">
 
+                    <div class="mb-2 row">
+                        <label class="col-sm-2 col-form-label" for="Board">Board</label>
+                        <div class="col-sm-10">
+                            <select class="form-select  <?= isset($error['boardsid']) ? 'is-invalid' : '' ?>" id="boardsid" name="boardsid">
+                                <?php foreach ($boards as $board): ?>
+                                    <option value="<?= $board['id'] ?>" <?= isset($tasks['boardsid']) && ($taskart['boardsid'] == $board['id']) ? 'selected' : '' ?>>
+                                        <?= $board['board'] ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                            <div class="invalid-feedback">
+                                <?= isset($error['tasks']) ?>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="mb-2 row">
                         <label class="col-sm-2 col-form-label" for="spalte">Spaltenbezeichnung</label>

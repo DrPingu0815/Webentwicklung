@@ -66,7 +66,7 @@ class SpaltenModel extends Model
             'sortid' => $_POST['sortid'],
             'spalte' => $_POST['spalte'],
             'spaltenbeschreibung'=> $_POST['spaltenbeschreibung'],
-            'boardsid' => 1
+            'boardsid' => $_POST['boardsid']
 
         ));
 
@@ -87,7 +87,7 @@ class SpaltenModel extends Model
             'sortid' => $_POST['sortid'],
             'spalte' => $_POST['spalte'],
             'spaltenbeschreibung'=> $_POST['spaltenbeschreibung'],
-            'boardsid' => 1
+            'boardsid' => $_POST['boardsid']
 
         ));
     }
