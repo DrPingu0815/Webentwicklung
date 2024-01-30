@@ -116,13 +116,13 @@ use App\Controllers\Tasks;
                     <div class="mb-2 row">
                         <label class="col-sm-2 col-form-label" for="notiz">Notiz</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control <?= isset($error['notiz']) ? 'is-invalid' : '' ?>" id="notiz" name="notiz" rows="4"><?= $_POST['notiz'] ?? (isset($tasks['notizen']) ? $tasks['notizen'] : '') ?></textarea>
+                            <textarea class="form-control <?= isset($error['notiz']) ? 'is-invalid' : '' ?>" id="notiz" name="notiz" rows="4"><?=(isset($tasks['notizen']) ? $tasks['notizen'] : '')?></textarea>
                             <div class="invalid-feedback">
                                 <?= isset($error['notiz']) ? $error['notiz'] : '' ?>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
 
 
                     <div class="mb-5 row">
