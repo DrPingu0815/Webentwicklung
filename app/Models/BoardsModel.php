@@ -27,23 +27,18 @@ class BoardsModel extends Model
     }
 
 
-
-
+    // In Ihrer BoardsModel-Klasse
     public function getBoardsbyID($id = 1)
     {
         $this->boards = $this->db->table('boards');
         $this->boards->select('*');
-
-        if ($id != NULL) {
-            $this->boards->where('id', $id);
-        }
+        $this->boards->where('id', $id);
 
         $result = $this->boards->get();
 
-        return $result->getResultArray();
-
-
+        return $result->getRowArray();
     }
+
 
 
 
@@ -79,8 +74,5 @@ class BoardsModel extends Model
         $this->boards->where('id', $_POST['id']);
         $this->boards->delete();
     }
-
-
-
 
 }

@@ -16,7 +16,7 @@ class Tasks extends BaseController
 
 
 
-    public function getStartseite($id = 0)
+    public function getStartseite($boardid = 1)
     {
 
 
@@ -31,7 +31,10 @@ class Tasks extends BaseController
 
 
         $boardsbyID  = new BoardsModel();
-        $data['boardbyid'] = $boardsbyID->getBoardsbyID($id);
+        $data['boardbyid'] = $boardsbyID->getBoardsbyID($boardid);
+
+
+
 
 
 

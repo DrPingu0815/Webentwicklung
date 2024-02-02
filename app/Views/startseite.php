@@ -16,14 +16,21 @@ use App\Controllers\Tasks;
                         </div>
                         <div class="d-flex">
                             <button class="btn btn-primary dropdown-toggle me-2" type="button" id="dropdownBoards" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?= isset($boardbyid['board']) ? $boardbyid['board'] : 'Select Board' ?>
 
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownBoards">
-                                <?php foreach ($boardbyid as $board) : ?>
-                                    <a class="dropdown-item" href="<?= base_url('Tasks/Startseite/' . $board['id']) ?>"><?= $board['board'] ?></a>
+                                <?php foreach ($boards as $board) : ?>
+                                    <a class="dropdown-item<?= ($boardbyid['id'] ?? null) == $board['id'] ? ' selected-board' : '' ?>" href="<?= base_url('Tasks/Startseite/' . $board['id']) ?>">
+                                        <?= $board['board'] ?>
+                                    </a>
                                 <?php endforeach; ?>
                             </div>
                         </div>
+
+
+
+
 
 
 
@@ -38,7 +45,7 @@ use App\Controllers\Tasks;
 
                     <div class="row flex-nowrap overflow-x-auto">
                         <?php foreach ($spalte as $item): ?>
-                        <?php if ($item['board'] == $board['board']): ?>
+                        <?php if ($item['board'] == $boardbyid['board']): ?>
                             <div class="col-md-4 mb-3">
                                 <div class="card">
                                     <div class="card-header">
