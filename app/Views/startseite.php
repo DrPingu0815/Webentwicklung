@@ -9,14 +9,36 @@ use App\Controllers\Tasks;
 
 <div class="container-fluid">
             <div class="card mb-3 ">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h3 class="card-title">Tasks</h3>
-                    <a class="btn btn-primary btn-sm" href="<?= base_url('Tasks/TaskCRUD') ?>" role="button">Neu</a>
-                </div>
+                <div class="card-header bg-white">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <span class="h3">Tasks</span>
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn btn-primary dropdown-toggle me-2" type="button" id="dropdownBoards" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownBoards">
+                                <?php foreach ($boardbyid as $board) : ?>
+                                    <a class="dropdown-item" href="<?= base_url('Tasks/Startseite/' . $board['id']) ?>"><?= $board['board'] ?></a>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
                 <div class="card-body">
+
+                    <div class="mb-3">
+                    <a class="btn btn-primary btn-sm" href="<?= base_url('Tasks/TaskCRUD') ?>" role="button"> <i class="fa-solid fa-plus"></i> Neu</a>
+                    </div>
+
+
                     <div class="row flex-nowrap overflow-x-auto">
                         <?php foreach ($spalte as $item): ?>
+                        <?php if ($item['board'] == $board['board']): ?>
                             <div class="col-md-4 mb-3">
                                 <div class="card">
                                     <div class="card-header">
@@ -139,6 +161,7 @@ use App\Controllers\Tasks;
 
 
                             </div>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </div>
                 </div>

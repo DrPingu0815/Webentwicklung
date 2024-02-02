@@ -40,6 +40,25 @@ use App\Controllers\Tasks;
                     </div>
 
 
+                    <div class="mb-2 row">
+                        <label class="col-sm-2 col-form-label" for="boardsid">Board</label>
+                        <div class="col-sm-10">
+                            <select class="form-select <?= isset($error['board']) ? 'is-invalid' : '' ?>" id="boardsid" name="boardsid">
+                                <?php foreach ($boards as $board): ?>
+                                    <option value="<?= $board['id'] ?>" <?= isset($spalten['boardsid']) && ($board['id'] == $spalten['boardsid']) ? ' selected' : ''?>>
+                                        <?= $board['board']?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
 
                     <div class="mb-2 row">
                         <label class="col-sm-2 col-form-label" for="spaltenbeschreibung">Spaltenbeschreibung</label>

@@ -59,10 +59,11 @@ class TaskModel extends Model
     public function getTasks($taskid = NULL, $spaltenid = NULL)
     {
         $this->tasks = $this->db->table('tasks t');
-        $this->tasks->select('t.*, p.vorname, p.name, ta.taskart, ta.taskartenicon, s.spalte');
+        $this->tasks->select('t.*, p.vorname, p.name, ta.taskart, ta.taskartenicon, s.spalte, b.board');
         $this->tasks->join('personen p', 't.personenid = p.id');
         $this->tasks->join('spalten s', 't.spaltenid = s.id');
         $this->tasks->join('taskarten ta', 't.taskartenid = ta.id');
+        $this->tasks->join('boards b', 'b.id = s.boardsid');
         $this->tasks->orderBy('p.vorname', 'asc');
 
 

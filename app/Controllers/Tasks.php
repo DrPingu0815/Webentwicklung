@@ -16,7 +16,7 @@ class Tasks extends BaseController
 
 
 
-    public function getStartseite()
+    public function getStartseite($id = 0)
     {
 
 
@@ -25,6 +25,15 @@ class Tasks extends BaseController
 
         $spalte = new SpaltenModel();
         $data['spalte'] = $spalte->getSpalten();
+
+        $boards = new BoardsModel();
+        $data['boards'] = $boards->getBoards();
+
+
+        $boardsbyID  = new BoardsModel();
+        $data['boardbyid'] = $boardsbyID->getBoardsbyID($id);
+
+
 
 
 
@@ -68,6 +77,9 @@ class Tasks extends BaseController
 
         $taskartenmodel = new TaskArtModel();
         $data['taskarten'] = $taskartenmodel->getTaskarten();
+
+        $boards = new BoardsModel();
+        $data['boards'] = $boards->getBoards();
 
         echo view('templates/head');
         echo view('taskedit', $data);

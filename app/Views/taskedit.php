@@ -50,7 +50,7 @@ use App\Controllers\Tasks;
                             <select class="form-select  <?= isset($error['taskart']) ? 'is-invalid' : '' ?>" id="taskart" name="taskart">
                                 <?php foreach ($taskarten as $taskart): ?>
                                     <option value="<?= $taskart['id'] ?>" <?= isset($tasks['taskartenid']) && ($taskart['id'] == $tasks['taskartenid']) ? 'selected' : '' ?>>
-                                        <?= $taskart['taskart'] ?>
+                                        <?= $taskart['taskartenicon'] . ' ' . $taskart['taskart'] ?>
                                     </option>
                                 <?php endforeach; ?>
                             </select>
@@ -131,7 +131,10 @@ use App\Controllers\Tasks;
                             <select class="form-select" id="spalte" name="spalte">
                                 <?php foreach ($spalten as $spalte): ?>
                                     <option value="<?= $spalte['id'] ?>" <?= isset($tasks['spaltenid']) && ($spalte['id'] == $tasks['spaltenid']) ? 'selected' : '' ?>  >
-                                        <?= $spalte['spalte'] ?>
+                                        <?= $spalte['board'] . ' - ' . $spalte['spalte'] ?>
+
+
+
                                     </option>
                                 <?php endforeach; ?>
                             </select>

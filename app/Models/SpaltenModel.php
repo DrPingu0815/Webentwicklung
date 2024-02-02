@@ -30,30 +30,6 @@ class SpaltenModel extends Model
     }
 
 
-    public function getSpaltenWithoutBoard($id = NULL)
-    {
-
-        $this->spalten = $this->db->table('spalten');
-        $this->spalten->where('id', $id);
-        $result = $this->spalten->get();
-
-
-        if ($id != NULL) {
-            return $result->getRowArray();
-        } else {
-            return $result->getResultArray();
-        }
-
-
-
-
-    }
-
-
-
-
-
-
 
 
 
@@ -66,7 +42,7 @@ class SpaltenModel extends Model
             'sortid' => $_POST['sortid'],
             'spalte' => $_POST['spalte'],
             'spaltenbeschreibung'=> $_POST['spaltenbeschreibung'],
-            'boardsid' => 1
+            'boardsid' => $_POST['boardsid']
 
         ));
 
@@ -87,7 +63,7 @@ class SpaltenModel extends Model
             'sortid' => $_POST['sortid'],
             'spalte' => $_POST['spalte'],
             'spaltenbeschreibung'=> $_POST['spaltenbeschreibung'],
-            'boardsid' => 1
+            'boardsid' => $_POST['boardsid']
 
         ));
     }

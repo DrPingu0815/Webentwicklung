@@ -25,4 +25,62 @@ class BoardsModel extends Model
             return $result->getResultArray();
         }
     }
+
+
+
+
+    public function getBoardsbyID($id = 1)
+    {
+        $this->boards = $this->db->table('boards');
+        $this->boards->select('*');
+
+        if ($id != NULL) {
+            $this->boards->where('id', $id);
+        }
+
+        $result = $this->boards->get();
+
+        return $result->getResultArray();
+
+
+    }
+
+
+
+
+
+
+
+
+
+    public function boards_speichern()
+    {
+
+        $this->boards = $this->db->table('boards');
+
+        $this->boards->insert(array(
+            'board' => $_POST['board']
+        ));
+
+    }
+
+    public function boards_bearbeiten()
+    {
+        $this->boards = $this->db->table('boards');
+        $this->boards->where('id', $_POST['id']);
+        $this->boards->update(array(
+            'board' => $_POST['board']
+        ));
+    }
+
+    public function boards_loeschen()
+    {
+        $this->boards = $this->db->table('boards');
+        $this->boards->where('id', $_POST['id']);
+        $this->boards->delete();
+    }
+
+
+
+
 }

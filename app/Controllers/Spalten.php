@@ -35,7 +35,7 @@ class Spalten extends BaseController
         if($id >0 && ($todo == 1 || $todo == 2))
         {
 
-            $data['spalten'] = $spalten->getSpaltenWithoutBoard($id);
+            $data['spalten'] = $spalten->getSpalten($id);
 
         }
 
