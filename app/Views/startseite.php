@@ -126,15 +126,6 @@ use App\Controllers\Tasks;
                                                 </div>
 
 
-                                                <div class="mb-1">
-                                                    <p class="ms-2 text-secondary">
-                                                        <i class="fa-regular fa-message"></i>
-                                                        <?= $task['notizen'] ?>
-                                                    </p>
-
-
-                                                </div>
-
 
 
 
@@ -147,19 +138,16 @@ use App\Controllers\Tasks;
                                             <?php endif; ?>
                                         <?php endforeach; ?>
                                     </div>
-
-                                        <div class="container-fluid mb-2">
-
+                                    <div class="mb-2 ms-1 me-1" id="taskend">
 
                                         <a href="<?= base_url('Tasks/TaskCRUD') ?>">
                                             <button class="btn btn-primary w-100" type="button" name="btnNeu" id="btnNeu">
                                                 <i class="fas fa-plus-square"></i> Neu
                                             </button>
                                         </a>
-                                        </div>
                                     </div>
 
-
+                                </div>
                             </div>
                             <?php endif; ?>
                         <?php endforeach; ?>
@@ -167,7 +155,6 @@ use App\Controllers\Tasks;
                 </div>
             </div>
 </div>
-
 
 
 
