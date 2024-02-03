@@ -47,6 +47,7 @@ class Tasks extends BaseController
 
 
         echo view('templates/head');
+        echo view('templates/menu');
         echo view('startseite', $data);
         echo view('templates/footer');
 
@@ -85,6 +86,7 @@ class Tasks extends BaseController
         $data['boards'] = $boards->getBoards();
 
         echo view('templates/head');
+        echo view('templates/menu');
         echo view('taskedit', $data);
         echo view('templates/footer');
 
@@ -144,6 +146,7 @@ class Tasks extends BaseController
 
 
             echo view('templates/head');
+            echo view('templates/menu');
             echo view('taskedit', $data);
             echo view('templates/footer');
         }

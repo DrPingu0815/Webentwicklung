@@ -16,25 +16,22 @@ use App\Controllers\Tasks;
                         </div>
                         <div class="d-flex">
                             <button class="btn btn-primary dropdown-toggle me-2" type="button" id="dropdownBoards" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?= isset($boardbyid['board']) ? $boardbyid['board'] : 'Select Board' ?>
+                                <?= isset($boardbyid['board']) ? $boardbyid['board'] : ' ' ?>
 
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownBoards">
                                 <?php foreach ($boards as $board) : ?>
-                                    <a class="dropdown-item<?= ($boardbyid['id'] ?? null) == $board['id'] ? ' selected-board' : '' ?>" href="<?= base_url('Tasks/Startseite/' . $board['id']) ?>">
+                                    <a class="dropdown-item" href="<?= base_url('Tasks/Startseite/' . $board['id']) ?>">
                                         <?= $board['board'] ?>
                                     </a>
                                 <?php endforeach; ?>
                             </div>
                         </div>
-
-
-
-
-
-
-
                     </div>
+
+
+
+
                 </div>
                 <div class="card-body">
 
@@ -162,6 +159,9 @@ use App\Controllers\Tasks;
                 </div>
             </div>
 </div>
+
+
+
 
 
 

@@ -19,6 +19,7 @@ class Spalten extends BaseController
         $data['spalten'] = $spalten->getSpalten();
 
         echo view('templates/head');
+        echo view('templates/menu');
         echo view('spalten', $data);
         echo view('templates/footer');
 
@@ -49,6 +50,7 @@ class Spalten extends BaseController
 
 
         echo view('templates/head');
+        echo view('templates/menu');
         echo view('spaltenedit', $data);
         echo view('templates/footer');
 
@@ -97,6 +99,7 @@ class Spalten extends BaseController
 
 
             echo view('templates/head');
+            echo view('templates/menu');
             echo view('spaltenedit', $data);
             echo view('templates/footer');
 

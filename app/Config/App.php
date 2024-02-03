@@ -16,6 +16,9 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
+
+
+
    // public string $baseURL = 'http://localhost/web-entwicklung/public/';
 
 
@@ -40,11 +43,11 @@ class App extends BaseConfig
      * Index File
      * --------------------------------------------------------------------------
      *
-     * Typically this will be your index.php file, unless you've renamed it to
+     * Typically this will be your index.html file, unless you've renamed it to
      * something else. If you are using mod_rewrite to remove the page set this
      * variable so that it is blank.
      */
-    public string $indexPage = 'index.php';
+    public string $indexPage = 'https://team22.wi1cm.uni-trier.de/public/';
 
     /**
      * --------------------------------------------------------------------------

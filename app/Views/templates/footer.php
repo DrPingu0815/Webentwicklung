@@ -1,4 +1,4 @@
-<footer class="footer mt-auto py-3 bg-footer">
+<footer class="footer mt-auto py-3 bg-footer" id="footer">
     <div class="container">
         <div class="row">
             <div class="col-6 text-white text-start">

@@ -17,6 +17,7 @@ class Boards extends BaseController
         $data['boards'] = $boards->getBoards();
 
         echo view('templates/head');
+        echo view('templates/menu');
         echo view('boards', $data);
         echo view('templates/footer');
 
@@ -40,6 +41,7 @@ class Boards extends BaseController
 
 
         echo view('templates/head');
+        echo view('templates/menu');
         echo view('boardsedit', $data);
         echo view('templates/footer');
 
@@ -90,6 +92,7 @@ class Boards extends BaseController
 
 
                 echo view('templates/head');
+                echo view('templates/menu');
                 echo view('boardsedit', $data);
                 echo view('templates/footer');
 

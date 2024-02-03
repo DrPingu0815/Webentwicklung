@@ -44,12 +44,12 @@ class SiteURI extends URI
     /**
      * List of URI segments in baseURL and indexPage.
      *
-     * If the URI is "http://localhost:8888/ci431/public/index.php/test?a=b",
+     * If the URI is "http://localhost:8888/ci431/public/index.html/test?a=b",
      * and the baseURL is "http://localhost:8888/ci431/public/", then:
      *   $baseSegments = [
      *       0 => 'ci431',
      *       1 => 'public',
-     *       2 => 'index.php',
+     *       2 => 'index.html',
      *   ];
      */
     private array $baseSegments;
@@ -60,7 +60,7 @@ class SiteURI extends URI
      * The word "URI Segments" originally means only the URI path part relative
      * to the baseURL.
      *
-     * If the URI is "http://localhost:8888/ci431/public/index.php/test?a=b",
+     * If the URI is "http://localhost:8888/ci431/public/index.html/test?a=b",
      * and the baseURL is "http://localhost:8888/ci431/public/", then:
      *   $segments = [
      *       0 => 'test',

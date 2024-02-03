@@ -27,9 +27,9 @@ use App\Controllers\Tasks;
                     <input type="hidden" name="id" value="<?= isset($tasks) ? esc($tasks['id']) : '' ?>">
 
 
-                    <div class="mb-2 row">
+                    <div class="mb-2 row align-items-center">
                         <label class="col-sm-2 col-form-label" for="tasks">Taskbezeichnung</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-7">
                             <input type="text" class="form-control <?= isset($error['tasks']) ? 'is-invalid' : '' ?>"
                                    id="tasks" name="tasks" placeholder="Bezeichnung der Aufgabe"
                                    value="<?=(isset($tasks['tasks']) ? $tasks['tasks'] : '')?>">
@@ -40,13 +40,8 @@ use App\Controllers\Tasks;
                                 <?= isset($error['tasks']) ? $error['tasks'] : '' ?>
                             </div>
                         </div>
-                    </div>
 
-
-
-                    <div class="mb-2 row">
-                        <label class="col-sm-2 col-form-label" for="taskart">Taskart</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-3">
                             <select class="form-select  <?= isset($error['taskart']) ? 'is-invalid' : '' ?>" id="taskart" name="taskart">
                                 <?php foreach ($taskarten as $taskart): ?>
                                     <option value="<?= $taskart['id'] ?>" <?= isset($tasks['taskartenid']) && ($taskart['id'] == $tasks['taskartenid']) ? 'selected' : '' ?>>
@@ -62,9 +57,13 @@ use App\Controllers\Tasks;
                     </div>
 
 
-                    <div class="mb-2 row">
+
+
+
+
+                    <div class="mb-2 row align-items-center">
                         <label class="col-sm-2 col-form-label" for="person">Person</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-4">
                             <select class="form-select <?= isset($error['person']) ? 'is-invalid' : '' ?>" id="person" name="person">
                                 <?php foreach ($personen as $person): ?>
                                     <option value="<?= $person['id'] ?>" <?= isset($tasks['personenid']) && ($person['id'] == $tasks['personenid']) ? ' selected' : ''?>>
@@ -74,41 +73,40 @@ use App\Controllers\Tasks;
                             </select>
                         </div>
 
-                    </div>
-
-
-                    <div class="mb-2 row">
-                        <label class="col-sm-2 col-form-label" for="erstellungsdatum">Erstellungsdatum</label>
-                        <div class="col-sm-10">
+                        <label class="col col-form-label" for="erstellungsdatum">Erstellungsdatum</label>
+                        <div class="col-sm-4">
                             <input type="date" class="form-control <?= isset($error['erstellungsdatum']) ? 'is-invalid' : '' ?>" id="erstellungsdatum" name="erstellungsdatum" value="<?=(isset($tasks['erstellungsdatum']) ? $tasks['erstellungsdatum'] : '')?>">
                             <div class="invalid-feedback">
                                 <?= isset($error['erstellungsdatum']) ? $error['erstellungsdatum'] : '' ?>
                             </div>
                         </div>
-
                     </div>
 
 
-                    <div class="mb-2 row">
+
+
+
+                    <div class="mb-2 row align-items-center">
+                        <label class="col-sm-2 col-form-label" for="erinnerung">Erinnerung</label>
+                        <div class="col-sm-4">
+                            <select class="form-select" id="erinnerung" name="erinnerung">
+                                <option value="0" <?= isset($tasks) && ($tasks['erinnerung'] == 0) ? 'selected' : '' ?>>0</option>
+                                <option value="1" <?= isset($tasks) && ($tasks['erinnerung'] == 1) ? 'selected' : '' ?>>1</option>
+                            </select>
+                        </div>
+
+
+
                         <label class="col-sm-2 col-form-label" for="erinnerungsdatum">Erinnerungsdatum</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-4">
                             <input type="datetime-local" class="form-control <?= isset($error['erinnerungsdatum']) ? 'is-invalid' : '' ?>" id="erinnerungsdatum" name="erinnerungsdatum" value="<?=(isset($tasks['erinnerungsdatum']) ? $tasks['erinnerungsdatum'] : '')?>">
                             <div class="invalid-feedback">
                                 <?= isset($error['erinnerungsdatum']) ? $error['erinnerungsdatum'] : '' ?>
                             </div>
                         </div>
 
-                    </div>
 
 
-                    <div class="mb-2 row">
-                        <label class="col-sm-2 col-form-label" for="erinnerung">Erinnerung</label>
-                        <div class="col-sm-10">
-                            <select class="form-select" id="erinnerung" name="erinnerung">
-                                <option value="0" <?= isset($tasks) && ($tasks['erinnerung'] == 0) ? 'selected' : '' ?>>0</option>
-                                <option value="1" <?= isset($tasks) && ($tasks['erinnerung'] == 1) ? 'selected' : '' ?>>1</option>
-                            </select>
-                        </div>
 
                     </div>
 

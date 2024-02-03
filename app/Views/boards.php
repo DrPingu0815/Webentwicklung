@@ -36,7 +36,7 @@ use App\Controllers\Tasks;
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($boards as $item): ?>
+                 <?php foreach ($boards as $item): ?>
                     <tr>
                         <td><?= $item['id'] ?></td>
                         <td><?= $item['board'] ?></td>
@@ -64,7 +64,7 @@ use App\Controllers\Tasks;
 
 
                     </tr>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

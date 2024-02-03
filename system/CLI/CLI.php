@@ -187,7 +187,7 @@ class CLI
      * Get input from the shell, using readline or the standard STDIN
      *
      * Named options must be in the following formats:
-     * php index.php user -v --v -name=John --name=John
+     * php index.html user -v --v -name=John --name=John
      *
      * @param string|null $prefix You may specify a string with which to prompt the user.
      */

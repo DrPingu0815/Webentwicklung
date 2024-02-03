@@ -20,7 +20,7 @@ class MockCodeIgniter extends CodeIgniter
     /**
      * @param int $code
      *
-     * @deprecated 4.4.0 No longer Used. Moved to index.php.
+     * @deprecated 4.4.0 No longer Used. Moved to index.html.
      */
     protected function callExit($code)
     {

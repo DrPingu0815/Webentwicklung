@@ -36,27 +36,11 @@
 
 <!-- NavBar-->
 
-<nav class="navbar navbar-dark navbar-expand-md navbar-dark bg-header-1 bg-header-2 px-0 py-0 pb-1 mb-3">
+<!-- NavBar -->
+<nav class="navbar navbar-dark navbar-expand-md navbar-dark bg-header-1 bg-header-2 px-0 py-0 pb-1 mb-1">
     <div class="container-fluid">
-
         <a class="navbar-brand m-2" href="<?= base_url('Tasks/Startseite') ?>">
-            <img src="<?= base_url('') ?>/06_-_WE_Logo.svg"" alt="" height="auto" width="20vw">
+            <img src="<?= base_url('') ?>/06_-_WE_Logo.svg" alt="" height="auto" width="20vw">
         </a>
-
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="<?= base_url('Tasks/Startseite') ?>" class="nav-link" id="Active">Tasks</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="<?= base_url('Boards/Boardsseite') ?>" class="nav-link">Boards</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="<?= base_url('Spalten/Spaltenseite') ?>" class="nav-link">Spalten</a>
-                </li>
-            </ul>
-        </div>
     </div>
 </nav>
