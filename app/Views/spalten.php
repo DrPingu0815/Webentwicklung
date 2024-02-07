@@ -18,7 +18,7 @@ use App\Controllers\Tasks;
 
 
         <div class="card-body">
-            <table class="table table-striped table-bordered table-responsive d-table table-hover ms-2 me-2"
+            <table class="table table-striped table-bordered table-responsive d-table table-hover m-0"
                    data-show-columns="true"
                    data-show-toggle="true"
                    data-toggle="table"

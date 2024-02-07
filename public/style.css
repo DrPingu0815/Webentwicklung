@@ -1,17 +1,26 @@
-#Active{
-    color: white;
-}
 
 nav img{
-    width: 14rem;
+    width: 15rem;
     height: auto;
 }
 
 nav, footer{
-    background-color: #002060;
-
+    background-color: #00205f;
 }
 
 footer{
     color: white;
+}
+
+.btn-secondary{
+    background-color: #0d6efd;
+    border: none;
+}
+
+.btn-secondary:hover{
+    background-color: #0b5ed7;
+}
+
+.fa-bars{
+
 }

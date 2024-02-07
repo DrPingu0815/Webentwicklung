@@ -18,19 +18,23 @@ use App\Controllers\Tasks;
 
 
         <div class="card-body">
-            <table class="table table-striped table-bordered table-responsive d-table table-hover ms-2 me-2"
-                   data-show-columns="true"
+            <table class="table table-striped table-bordered table-responsive d-table table-hover m-0"
+                   id="table"
                    data-show-toggle="true"
                    data-toggle="table"
                    data-search="true"
-                   data-toolbar="#toolbar"
+                   data-show-columns="true"
+                   data-id-table="advancedTable"
+                   data-show-button-icons="true"
+
+                   data-icons-prefix="fas"
             >
 
                 <thead>
                 <tr>
-                    <th data-sortable="true">ID</th>
-                    <th data-sortable="true">Board</th>
-                    <th data-sortable="true">Bearbeiten</th>
+                    <th data-field="id" data-sortable="true">ID</th>
+                    <th data-field="name" data-sortable="true">Board</th>
+                    <th data-field="price" data-sortable="true">Bearbeiten</th>
 
 
                 </tr>

@@ -1,5 +1,5 @@
 <footer class="footer mt-auto py-3 bg-footer" id="footer">
-    <div class="container">
+    <div class="container justify-content-center">
         <div class="row">
             <div class="col-6 text-white text-start">
                 <span class="text-white"> &copy;Web-Entwicklung 2023</span>
