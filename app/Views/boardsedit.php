@@ -43,7 +43,7 @@ use App\Controllers\Tasks;
                     <? elseif($todo == 2): ?>
                         <button type="submit" class="btn btn-danger mb-2" role="button" name="buttonCRUD" value="Löschen">Löschen</button>
                     <? endif; ?>
-                    <a class="btn btn-secondary  mb-2" href="<?= base_url('Boards/Boardsseite') ?>" role="button">Abbrechen</a>
+                    <a class="btn bg-secondary text-white  mb-2" href="<?= base_url('Boards/Boardsseite') ?>" role="button">Abbrechen</a>
 
                 </fieldset>
             </form>

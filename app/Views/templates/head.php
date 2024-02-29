@@ -26,6 +26,10 @@
     <script src="https://unpkg.com/bootstrap-table@1.22.2/dist/bootstrap-table.min.js"></script>
 
 
+    <!-- Dragula -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.6/dragula.min.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.6/dragula.min.js'></script>
+
     <!-- STylesheet -->
 
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>style.css">

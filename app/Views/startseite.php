@@ -53,7 +53,7 @@ use App\Controllers\Tasks;
                                     </div>
 
 
-                                    <div class="card-body">
+                                    <div class="card-body dragula-container">
                                         <?php foreach ($tasks as $task): ?>
                                             <?php if ($task['spalte'] == $item['spalte']): ?>
                                         <div class="card mb-2">
@@ -129,12 +129,12 @@ use App\Controllers\Tasks;
                                                     </p>
                                                 </div>
 
-
-
-
-
-
-
+                                                <div class="mb-1">
+                                                    <p class="ms-2 text-secondary">
+                                                        <i class="fa-regular fa-message"></i>
+                                                        <?= $task['notizen'] ?>
+                                                    </p>
+                                                </div>
 
                                         </div>
                                         </div>
@@ -144,7 +144,7 @@ use App\Controllers\Tasks;
                                     </div>
                                     <div class="mb-2 ms-1 me-1" id="taskend">
 
-                                        <a href="<?= base_url('Tasks/TaskCRUD') ?>">
+                                        <a href="<?= base_url('Tasks/TaskCRUD/0/0/' . $item['id']) ?>">
                                             <button class="btn btn-primary w-100" type="button" name="btnNeu" id="btnNeu">
                                                 <i class="fas fa-plus-square"></i> Neu
                                             </button>
@@ -159,6 +159,72 @@ use App\Controllers\Tasks;
                 </div>
             </div>
 </div>
+
+<script>
+    var update = true;
+
+    $(document).ready(function () {
+
+        let drake = dragula({
+            isContainer: function (el) {
+                return el.classList.contains('dragula-container');
+            },
+            moves: function (el, source, handle, sibling) {
+                return true;
+            },
+            accepts: function (el, target, source, sibling) {
+                return true; // elements are always draggable by default
+            },
+            invalid: function (el, handle) {
+                return false; // don't prevent any drags from initiating by default
+            },
+
+            direction: 'vertical',
+            copy: false,
+            copySortSource: false,
+            revertOnSpill: true,
+            removeOnSpill: false,
+            mirrorContainer: document.body,
+            ignoreInputTextSelection: true,
+            slideFactorX: 0,
+            slideFactorY: 0,
+        });
+
+        drake.on('drag', function(el,target,source,sibling) {
+            update = false;
+        });
+
+        drake.on('drop', function(el,target,source,sibling) {
+            update = true;
+            // updateTaskBoard(el.getAttribute("tasksid"), source.getAttribute("spaltenid"), target.getAttribute("spaltenid"), sibling.getAttribute("sortid"))
+        });
+
+
+    });
+
+    /*
+    function updateTaskBoard(tasksid = 0, sourcespaltenid = 0, targetspaltenid = 0, taskssortid = 0) {
+
+        $.ajax({
+            url: baseurl + '/tasks/submittaskboard',
+            method: 'post',
+            data: {
+                tasksid: tasksid,
+                sourcespaltenid: sourcespaltenid,
+                targetspaltenid: targetspaltenid,
+                taskssortid: taskssortid
+            },
+            dataType: 'json',
+            success: function (response) {
+                // location.reload();
+            },
+            error: function (xhr) {
+                bootbox.alert("<span class='red'>Achtung:</span> Es ist ein Serverfehler aufgetreten: " + xhr.status + " " + xhr.statusText + "!");
+            }
+        });
+    }
+    */
+</script>
 
 
 

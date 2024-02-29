@@ -24,7 +24,7 @@ use App\Controllers\Tasks;
                 <fieldset>
 
 
-                    <input type="hidden" name="id" value="<?= isset($tasks) ? esc($tasks['id']) : '' ?>">
+                    <input type="hidden" name="id" value="<?= isset($tasks['id']) ? esc($tasks['id']) : '' ?>">
 
 
                     <div class="mb-2 row align-items-center">
@@ -45,7 +45,7 @@ use App\Controllers\Tasks;
                             <select class="form-select  <?= isset($error['taskart']) ? 'is-invalid' : '' ?>" id="taskart" name="taskart">
                                 <?php foreach ($taskarten as $taskart): ?>
                                     <option value="<?= $taskart['id'] ?>" <?= isset($tasks['taskartenid']) && ($taskart['id'] == $tasks['taskartenid']) ? 'selected' : '' ?>>
-                                        <?= $taskart['taskartenicon'] . ' ' . $taskart['taskart'] ?>
+                                        <p><?= $taskart['taskartenicon'] . $taskart['taskart'] ?> </p>
                                     </option>
                                 <?php endforeach; ?>
                             </select>
@@ -90,8 +90,8 @@ use App\Controllers\Tasks;
                         <label class="col-sm-2 col-form-label" for="erinnerung">Erinnerung</label>
                         <div class="col-sm-4">
                             <select class="form-select" id="erinnerung" name="erinnerung">
-                                <option value="0" <?= isset($tasks) && ($tasks['erinnerung'] == 0) ? 'selected' : '' ?>>0</option>
-                                <option value="1" <?= isset($tasks) && ($tasks['erinnerung'] == 1) ? 'selected' : '' ?>>1</option>
+                                <option value="0" <?= isset($tasks['erinnerung']) && ($tasks['erinnerung'] == 0) ? 'selected' : '' ?>>0</option>
+                                <option value="1" <?= isset($tasks['erinnerung']) && ($tasks['erinnerung'] == 1) ? 'selected' : '' ?>>1</option>
                             </select>
                         </div>
 
@@ -149,7 +149,7 @@ use App\Controllers\Tasks;
                     <? elseif($todo == 2): ?>
                         <button type="submit" class="btn btn-danger mb-2" role="button" name="buttonCRUD" value="Löschen">Löschen</button>
                     <? endif; ?>
-                    <a class="btn btn-secondary  mb-2" href="<?= base_url('Tasks/Startseite') ?>" role="button">Abbrechen</a>
+                    <a class="btn bg-secondary text-white mb-2" href="<?= base_url('Tasks/Startseite') ?>" role="button">Abbrechen</a>
 
                 </fieldset>
             </form>

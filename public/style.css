@@ -24,3 +24,16 @@ footer{
 .fa-bars{
 
 }
+
+.cursor-grab div{
+    cursor: move;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.cursor-grab:active div{
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}

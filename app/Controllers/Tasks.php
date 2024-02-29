@@ -57,7 +57,7 @@ class Tasks extends BaseController
 
 
 
-    public function getTaskCRUD($id = 0, $todo = 0){
+    public function getTaskCRUD($id = 0, $todo = 0, $spalte = 0){
         // Todo: 0 = Erstellen, 1 = Bearbeiten, 2 = Löschen
 
 
@@ -69,6 +69,11 @@ class Tasks extends BaseController
 
             $data['tasks'] = $taskModel->getTasks($id);
 
+
+        }else{
+            if($spalte != 0){
+                $data['tasks'] = array('spaltenid'=>$spalte);
+            }
         }
 
 
@@ -150,8 +155,6 @@ class Tasks extends BaseController
             echo view('taskedit', $data);
             echo view('templates/footer');
         }
-
-
 
     }
 

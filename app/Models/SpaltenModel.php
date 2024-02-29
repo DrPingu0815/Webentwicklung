@@ -17,7 +17,7 @@ class SpaltenModel extends Model
 
 
         if ($id != NULL) {
-            $this->spalten->where('id', $id);
+            $this->spalten->where('s.id', $id);
         }
 
         $result = $this->spalten->get();
